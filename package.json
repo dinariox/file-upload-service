@@ -33,6 +33,9 @@
   "type": "module",
   "dependencies": {
     "axios": "^0.26.1",
-    "node-sass": "^7.0.1"
+    "firebase": "^9.6.9",
+    "node-sass": "^7.0.1",
+    "rxfire": "^6.0.3",
+    "rxjs": "^7.5.5"
   }
 }
