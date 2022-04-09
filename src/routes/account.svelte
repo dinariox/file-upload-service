@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
+	import { BACKEND_URL } from '/src/urls';
 	import initFirebase from '/src/initFirebase';
 	import firebase from 'firebase/compat/app';
 	import 'firebase/compat/database';
@@ -8,7 +9,6 @@
 	import { goto } from '$app/navigation';
 	import axios from 'axios';
 
-	const BACKEND_URL = 'http://localhost:3100';
 	// const BACKEND_URL = 'http://vollsm.art:5200';
 
 	let loadingDone = false;

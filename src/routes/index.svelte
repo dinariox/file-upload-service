@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
 	import axios from 'axios';
+	import { BACKEND_URL, FRONTEND_URL } from '/src/urls';
 	import initFirebase from '/src/initFirebase';
 	import firebase from 'firebase/compat/app';
 	import 'firebase/compat/auth';
@@ -9,10 +10,6 @@
 	import { goto } from '$app/navigation';
 	import { page } from '$app/stores';
 
-	const BACKEND_URL = 'http://localhost:3100';
-	// const BACKEND_URL = 'http://vollsm.art:5200';
-	const FRONTEND_URL = 'http://localhost:3000';
-	// const FRONTEND_URL = 'http://vollsm.art';
 	const MAXIMUM_FILE_SIZE_IN_BYTES = 1073741824; // 1GB
 
 	let uploadStatus = 'ready';
@@ -142,7 +139,7 @@
 	}
 
 	function handleCopyButtonClick() {
-		navigator.clipboard.writeText(uploadURL);
+		navigator.clipboard?.writeText(uploadURL);
 		copiedToClipboard = true;
 	}
 
