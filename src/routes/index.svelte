@@ -10,7 +10,9 @@
 	import { page } from '$app/stores';
 
 	const BACKEND_URL = 'http://localhost:3100';
+	// const BACKEND_URL = 'http://vollsm.art:5200';
 	const FRONTEND_URL = 'http://localhost:3000';
+	// const FRONTEND_URL = 'http://vollsm.art';
 	const MAXIMUM_FILE_SIZE_IN_BYTES = 1073741824; // 1GB
 
 	let uploadStatus = 'ready';

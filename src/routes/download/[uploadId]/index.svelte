@@ -9,6 +9,7 @@
 	import { goto } from '$app/navigation';
 
 	const BACKEND_URL = 'http://localhost:3100';
+	// const BACKEND_URL = 'http://vollsm.art:5200';
 	const uploadId = $page.params.uploadId;
 
 	let fileList = [];
