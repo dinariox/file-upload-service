@@ -312,7 +312,7 @@
 		<div id="login-wrapper">
 			<h1>Login to upload your file</h1>
 			<button on:click={loginWithGoogle}>
-				<img src="../static/img/btn_google_light_normal_ios.svg" alt="Login with Google" />
+				<img src="/img/btn_google_light_normal_ios.svg" alt="Login with Google" />
 				<p>Sign in with Google</p>
 			</button>
 		</div>
