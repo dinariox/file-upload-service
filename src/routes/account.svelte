@@ -69,7 +69,7 @@
 	}
 
 	function deleteFile(uploadId: string) {
-		if (!confirm('Are you sure you want to delete this file?')) {
+		if (!confirm('Bist du dir sicher, dass du die Datei löschen willst?')) {
 			return;
 		}
 
@@ -93,7 +93,7 @@
 </script>
 
 <svelte:head>
-	<title>vollsm.art - Your account</title>
+	<title>vollsm.art - Dein Account</title>
 </svelte:head>
 
 <div id="background">
@@ -103,11 +103,11 @@
 
 	{#if $authStore.isLoggedIn}
 		<div id="user-info">
-			<p title={'Logged in as ' + $authStore.user.email}>
-				<small>Logged in as</small>
+			<p title={'Angemeldet als ' + $authStore.user.email}>
+				<small>Angemeldet als</small>
 				<strong>{$authStore.user.displayName}</strong>
 			</p>
-			<button on:click={handleLogout} title="Log out">
+			<button on:click={handleLogout} title="Abmelden">
 				<svg
 					fill="none"
 					stroke="currentColor"
@@ -124,9 +124,9 @@
 		</div>
 
 		<div id="account-wrapper">
-			<h1>Your uploaded files</h1>
+			<h1>Deine hochgeladenen Dateien</h1>
 			{#if !loadingDone}
-				<p>Loading...</p>
+				<p>Lade...</p>
 			{:else if loadingDone && fileList.length > 0}
 				<ul>
 					{#each fileList as file}
@@ -149,7 +149,9 @@
 									{file.name}
 								</p>
 								<p class="file-info">
-									{fileSizeString(file.size)} &hybull; uploaded {formatDateString(file.uploadedAt)}
+									{fileSizeString(file.size)} &hybull; hochgeladen am {formatDateString(
+										file.uploadedAt
+									)}
 								</p>
 							</div>
 							<a class="view-button" href={`/download/${file.uploadId}`} target="_blank">
@@ -170,7 +172,7 @@
 										d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"
 									/></svg
 								>
-								<span>View</span>
+								<span>Ansehen</span>
 							</a>
 							<a
 								class="delete-button"
@@ -190,13 +192,13 @@
 										d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"
 									/></svg
 								>
-								<span>Delete</span>
+								<span>Löschen</span>
 							</a>
 						</li>
 					{/each}
 				</ul>
 			{:else}
-				<p>No files found</p>
+				<p>Keine Dateien gefunden</p>
 			{/if}
 
 			<button
@@ -205,15 +207,15 @@
 					goto('/');
 				}}
 			>
-				Upload a file
+				Eine Datei hochladen
 			</button>
 		</div>
 	{:else}
 		<div id="login-wrapper">
-			<h1>Login to check your account</h1>
+			<h1>Melde dich an um eine Datei hochzuladen</h1>
 			<button on:click={loginWithGoogle}>
 				<img src="/img/btn_google_light_normal_ios.svg" alt="Login with Google" />
-				<p>Sign in with Google</p>
+				<p>Mit Google anmelden</p>
 			</button>
 		</div>
 	{/if}

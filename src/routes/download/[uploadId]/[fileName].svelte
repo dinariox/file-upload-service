@@ -13,4 +13,4 @@
 	});
 </script>
 
-<p>You will be redirected...</p>
+<p>Du wirst weitergeleitet...</p>

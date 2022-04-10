@@ -149,7 +149,7 @@
 </script>
 
 <svelte:head>
-	<title>vollsm.art - Upload a file</title>
+	<title>vollsm.art - Eine Datei hochladen</title>
 </svelte:head>
 <div id="background">
 	<div id="logo">
@@ -158,8 +158,8 @@
 
 	{#if $authStore.isLoggedIn}
 		<div id="user-info">
-			<p title={'Logged in as ' + $authStore.user.email}>
-				<small>Logged in as</small>
+			<p title={'Angemeldet als ' + $authStore.user.email}>
+				<small>Angemeldet als</small>
 				<strong>{$authStore.user.displayName}</strong>
 			</p>
 			<button
@@ -181,7 +181,7 @@
 					/></svg
 				>
 			</button>
-			<button on:click={handleLogout} title="Log out">
+			<button on:click={handleLogout} title="Abmelden">
 				<svg
 					fill="none"
 					stroke="currentColor"
@@ -198,9 +198,9 @@
 		</div>
 
 		<div id="upload-wrapper">
-			<h1>Upload your file</h1>
+			<h1>Lade eine Datei hoch</h1>
 			<h2>
-				Maximum file size is {MAXIMUM_FILE_SIZE_IN_BYTES / 1024 / 1024 / 1024} GB
+				Die maximale Dateigröße beträgt {MAXIMUM_FILE_SIZE_IN_BYTES / 1024 / 1024 / 1024} GB
 			</h2>
 
 			{#if uploadStatus == 'ready'}
@@ -223,7 +223,7 @@
 							d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"
 						/></svg
 					>
-					<p>Drag and drop your file here or click to browse</p>
+					<p>Ziehe deine Datei hier hin oder klicke um zu durchsuchen</p>
 					<form id="file-upload-form">
 						<input type="file" name="file" on:change={handleFileInputChange} />
 					</form>
@@ -243,9 +243,9 @@
 							/></svg
 						>
 						<p>
-							A link to the file you upload will be automatically posted in the Discord channel
-							where you used the /upload command. Click <a href="/">here</a> if you don't want this to
-							happen.
+							Ein Link zu der Datei, die du hochlädst, wird automatisch in den Discord-Channel
+							gepostet, in dem du den /upload Befehl ausgeführt hast. Klicke <a href="/">hier</a> falls
+							du das nicht möchtest.
 						</p>
 					</div>
 				{/if}
@@ -280,7 +280,7 @@
 							d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
 						/></svg
 					>
-					<p>Your file has been uploaded successfully!</p>
+					<p>Deine Datei wurde erfolgreich hochgeladen!</p>
 					<div class="flex">
 						<input type="text" value={uploadURL} disabled />
 						<button on:click={handleCopyButtonClick}>
@@ -299,21 +299,21 @@
 							<span>{copiedToClipboard ? 'Copied!' : 'Copy'}</span>
 						</button>
 					</div>
-					<button id="return-button" on:click={handleReturnButtonClick}>Upload more</button>
+					<button id="return-button" on:click={handleReturnButtonClick}>Mehr hochladen</button>
 				</div>
 			{:else if uploadStatus == 'error'}
 				<div id="upload-error">
 					<p>An error occurred while uploading your file.</p>
-					<button id="return-button" on:click={handleReturnButtonClick}>Try again</button>
+					<button id="return-button" on:click={handleReturnButtonClick}>Erneut versuchen</button>
 				</div>
 			{/if}
 		</div>
 	{:else}
 		<div id="login-wrapper">
-			<h1>Login to upload your file</h1>
+			<h1>Melde dich an um eine Datei hochzuladen</h1>
 			<button on:click={loginWithGoogle}>
 				<img src="/img/btn_google_light_normal_ios.svg" alt="Login with Google" />
-				<p>Sign in with Google</p>
+				<p>Mit Google anmelden</p>
 			</button>
 		</div>
 	{/if}

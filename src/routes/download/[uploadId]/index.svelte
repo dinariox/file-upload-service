@@ -63,7 +63,7 @@
 </script>
 
 <svelte:head>
-	<title>vollsm.art - Download a file</title>
+	<title>vollsm.art - Eine Datei herunterladen</title>
 </svelte:head>
 
 <div id="background">
@@ -73,8 +73,8 @@
 
 	<div id="user-info">
 		{#if $authStore.isLoggedIn}
-			<p title={'Logged in as ' + $authStore.user.email}>
-				<small>Logged in as</small>
+			<p title={'Angemeldet als ' + $authStore.user.email}>
+				<small>Angemeldet als</small>
 				<strong>{$authStore.user.displayName}</strong>
 			</p>
 			<button
@@ -111,7 +111,7 @@
 				>
 			</button>
 		{:else}
-			<p>Not logged in</p>
+			<p>Nicht angemeldet</p>
 			<button
 				on:click={() => {
 					goto('/account');
@@ -135,9 +135,9 @@
 	</div>
 
 	<div id="file-wrapper">
-		<h1>File download</h1>
+		<h1>Datei herunterladen</h1>
 		{#if !loadingDone}
-			<p>Loading...</p>
+			<p>Lade...</p>
 		{:else if loadingDone && fileList.length > 0}
 			<ul>
 				{#each fileList as file}
@@ -160,7 +160,9 @@
 								{file.name}
 							</p>
 							<p class="file-info">
-								{fileSizeString(file.size)} &hybull; uploaded {formatDateString(file.uploadedAt)} by
+								{fileSizeString(file.size)} &hybull; hochgeladen am {formatDateString(
+									file.uploadedAt
+								)} von
 								{file.uploadedBy}
 							</p>
 						</div>
@@ -177,13 +179,13 @@
 									d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"
 								/></svg
 							>
-							<span>Download</span>
+							<span>Herunterladen</span>
 						</a>
 					</li>
 				{/each}
 			</ul>
 		{:else}
-			<p>No files found</p>
+			<p>Keine Datei gefunden</p>
 		{/if}
 	</div>
 </div>
